@@ -8,11 +8,14 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
+ * <b>Problem description</b>
+ * <p>
  * <i>2520</i> is the smallest number that can be divided by each of the numbers
  * from <i>1</i> to <i>10</i> without any remainder.
- * <p>
+ * <br/>
  * What is the smallest positive number that is <b>evenly divisible</b>
  * by all the numbers from <i>1</i> to <i>20</i>?
+ * </p>
  */
 class Challenge05Test {
 
