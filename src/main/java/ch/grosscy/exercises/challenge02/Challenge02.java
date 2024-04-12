@@ -1,11 +1,7 @@
 package ch.grosscy.exercises.challenge02;
 
-public class Challenge02 implements ImplementationGuide {
+public interface Challenge02 {
 
-    @Override
-    public int calculate(int maximalNumber) {
-        // TODO Implementation...
-        return 0;
-    }
+    int calculate(int maximalNumber);
 
 }

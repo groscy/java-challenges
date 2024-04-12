@@ -38,11 +38,12 @@ import static org.assertj.core.api.Assertions.assertThat;
  * </p>
  */
 class Challenge12Test {
+
     Challenge12 challenge12;
 
     @BeforeEach
     void setup(){
-        challenge12 = new Challenge12();
+        challenge12 = new Solution12();
     }
 
     @ParameterizedTest

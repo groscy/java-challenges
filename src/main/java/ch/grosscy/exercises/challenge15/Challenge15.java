@@ -1,11 +1,7 @@
 package ch.grosscy.exercises.challenge15;
 
+public interface Challenge15 {
 
-public class Challenge15 implements ImplementationGuide {
+    long calculate(int gridSize);
 
-    @Override
-    public long calculate(int gridSize) {
-        // TODO Implementation...
-        return 0L;
-    }
 }

@@ -1,10 +1,7 @@
 package ch.grosscy.exercises.challenge07;
 
-public class Challenge07 implements ImplementationGuide {
+public interface Challenge07 {
 
-    @Override
-    public long calculate(long primeAtPosition) {
-        // TODO Implementation...
-        return 0L;
-    }
+    long calculate(long upperLimit);
+
 }

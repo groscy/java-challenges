@@ -20,12 +20,11 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 class Challenge04Test {
 
-
     Challenge04 challenge04;
 
     @BeforeEach
     void setup() {
-        challenge04 = new Challenge04();
+        challenge04 = new Solution04();
     }
 
     @ParameterizedTest

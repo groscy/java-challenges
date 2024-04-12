@@ -26,7 +26,7 @@ class Challenge15Test {
 
     @BeforeEach
     void setup() {
-        challenge15 = new Challenge15();
+        challenge15 = new Solution15();
     }
 
     @ParameterizedTest
