@@ -27,7 +27,7 @@ class Solution16Test {
     void testPositiveCases(int exponent,
                            long expectedDigitSum) {
         assertThat(challenge16.calculate(exponent))
-                .as("Your digit sum is not correct!", expectedDigitSum)
+                .as("Your digit sum %s is not correct!", expectedDigitSum)
                 .isEqualTo(expectedDigitSum);
     }
 
