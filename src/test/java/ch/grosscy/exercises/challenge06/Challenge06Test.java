@@ -1,6 +1,7 @@
 package ch.grosscy.exercises.challenge06;
 
-import org.junit.jupiter.api.BeforeEach;
+import ch.grosscy.exercises.core.Challenge;
+import ch.grosscy.exercises.core.SolutionFactory;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -8,12 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class Challenge06Test {
 
-    Challenge06 challenge06;
-
-    @BeforeEach
-    void setup() {
-        challenge06 = new Solution06();
-    }
+    Challenge challenge = SolutionFactory.getSolution(Challenge06.class);
 
     @ParameterizedTest
     @CsvSource({
@@ -22,9 +18,9 @@ class Challenge06Test {
             "50, 1_582_700",
             "100, 25_164_150"
     })
-    void testPositiveCases(int upperLimit,
-                           int expectedDifferenceOfSquares) {
-        assertThat(challenge06.calculate(upperLimit))
+    void testPositiveCases(long upperLimit,
+                           long expectedDifferenceOfSquares) {
+        assertThat(challenge.runSolution(upperLimit))
                 .isEqualTo(expectedDifferenceOfSquares);
     }
 
@@ -43,9 +39,9 @@ class Challenge06Test {
             "100, 24_174_150",
             "100, 25_174_150"
     })
-    void testNegativeCases_wrongRange(int upperLimit,
-                                      int expectedDifferenceOfSquares) {
-        assertThat(challenge06.calculate(upperLimit))
+    void testNegativeCases_wrongRange(long upperLimit,
+                                      long expectedDifferenceOfSquares) {
+        assertThat(challenge.runSolution(upperLimit))
                 .as("Important: Check that you include the range from 1 to %s (inclusive)", upperLimit)
                 .isNotEqualTo(expectedDifferenceOfSquares);
     }
@@ -57,9 +53,9 @@ class Challenge06Test {
             "50, -53_103_750",
             "100, -1_683_165_000"
     })
-    void testNegativeCases_wrongOperationOrder(int upperLimit,
-                                               int expectedDifferenceOfSquares) {
-        assertThat(challenge06.calculate(upperLimit))
+    void testNegativeCases_wrongOperationOrder(long upperLimit,
+                                               long expectedDifferenceOfSquares) {
+        assertThat(challenge.runSolution(upperLimit))
                 .as("Important: Check your order of operators (*) before (-)")
                 .isNotEqualTo(expectedDifferenceOfSquares);
     }

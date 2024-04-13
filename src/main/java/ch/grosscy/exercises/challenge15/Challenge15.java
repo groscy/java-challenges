@@ -1,6 +1,8 @@
 package ch.grosscy.exercises.challenge15;
 
-public interface Challenge15 {
+import ch.grosscy.exercises.core.Challenge;
+
+public interface Challenge15 extends Challenge {
 
     /**
      * <b>Problem description</b>
@@ -16,6 +18,10 @@ public interface Challenge15 {
      * How many such routes are there through a <i>20 x 20</i> grid?
      * </p>
      */
-    long calculate(int gridSize);
+    long calculate(long gridSize);
 
+    @Override
+    default long runSolution(long input) {
+        return calculate(input);
+    }
 }

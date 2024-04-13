@@ -1,7 +1,8 @@
 package ch.grosscy.exercises.challenge03;
 
+import ch.grosscy.exercises.core.Challenge;
+import ch.grosscy.exercises.core.SolutionFactory;
 import ch.grosscy.exercises.utils.ParameterConversionUtils.StringToListArgumentConverter;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.converter.ConvertWith;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -12,12 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class Challenge03Test {
 
-    Challenge03 challenge03;
-
-    @BeforeEach
-    void setup() {
-        challenge03 = new Solution03();
-    }
+    Challenge challenge = SolutionFactory.getSolution(Challenge03.class);
 
     @ParameterizedTest
     @CsvSource({
@@ -31,7 +27,7 @@ class Challenge03Test {
     void testPositiveCases(long input,
                            @ConvertWith(StringToListArgumentConverter.class)
                            List<Long> expectedResult) {
-        List<Long> result = challenge03.calculate(input);
+        List<Long> result = challenge.runSolutionProducingList(input);
 
         assertThat(result)
                 .as("""

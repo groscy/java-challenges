@@ -1,6 +1,8 @@
 package ch.grosscy.exercises.challenge12;
 
-public interface Challenge12 {
+import ch.grosscy.exercises.core.Challenge;
+
+public interface Challenge12 extends Challenge {
 
     /**
      * <b>Problem description</b>
@@ -32,6 +34,10 @@ public interface Challenge12 {
      * have over five hundred divisors?
      * </p>
      */
-    long calculate(int numberOfDivisors);
+    long calculate(long numberOfDivisors);
 
+    @Override
+    default long runSolution(long input) {
+        return calculate(input);
+    }
 }

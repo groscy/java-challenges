@@ -1,11 +1,11 @@
 package ch.grosscy.exercises.challenge09;
 
-public record PythagoreanTriplet(int a, int b, int c) {
-    int sum() {
+public record PythagoreanTriplet(long a, long b, long c) {
+    long sum() {
         return a + b + c;
     }
 
-    int product() {
+    long product() {
         return a * b * c;
     }
 }

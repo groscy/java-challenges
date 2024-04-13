@@ -1,6 +1,7 @@
 package ch.grosscy.exercises.challenge09;
 
-import org.junit.jupiter.api.BeforeEach;
+import ch.grosscy.exercises.core.Challenge;
+import ch.grosscy.exercises.core.SolutionFactory;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -9,12 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class Challenge09Test {
 
-    Challenge09 challenge09;
-
-    @BeforeEach
-    void setup(){
-        challenge09 = new Solution09();
-    }
+    Challenge challenge = SolutionFactory.getSolution(Challenge09.class);
 
     @ParameterizedTest
     @CsvSource({
@@ -24,9 +20,9 @@ class Challenge09Test {
             "1000, 31_875_000",
             "1450, 78_073_800",
     })
-    void testPositiveCases(int sumOfTriplets,
+    void testPositiveCases(long sumOfTriplets,
                            long expectedProductOfTriplet) {
-        assertThat(challenge09.calculate(triplet -> triplet.sum() == sumOfTriplets))
+        assertThat(challenge.runSolution(tripletSum -> tripletSum == sumOfTriplets))
                 .isEqualTo(expectedProductOfTriplet);
     }
 

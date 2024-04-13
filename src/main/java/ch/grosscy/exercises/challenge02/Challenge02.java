@@ -1,6 +1,8 @@
 package ch.grosscy.exercises.challenge02;
 
-public interface Challenge02 {
+import ch.grosscy.exercises.core.Challenge;
+
+public interface Challenge02 extends Challenge {
 
     /**
      * <b>Problem description</b>
@@ -20,5 +22,10 @@ public interface Challenge02 {
      * </p>
      */
     int calculate(int maximalNumber);
+
+    @Override
+    default int runSolution(int maximalNumber) {
+        return calculate(calculate(maximalNumber));
+    }
 
 }

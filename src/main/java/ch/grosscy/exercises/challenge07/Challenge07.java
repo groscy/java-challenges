@@ -1,6 +1,8 @@
 package ch.grosscy.exercises.challenge07;
 
-public interface Challenge07 {
+import ch.grosscy.exercises.core.Challenge;
+
+public interface Challenge07 extends Challenge {
 
     /**
      * <b>Problem description</b>
@@ -19,4 +21,8 @@ public interface Challenge07 {
      */
     long calculate(long upperLimit);
 
+    @Override
+    default long runSolution(long input) {
+        return calculate(input);
+    }
 }

@@ -1,6 +1,8 @@
 package ch.grosscy.exercises.challenge06;
 
-public interface Challenge06 {
+import ch.grosscy.exercises.core.Challenge;
+
+public interface Challenge06 extends Challenge {
 
     /**
      * <b>Problem description</b>
@@ -25,6 +27,10 @@ public interface Challenge06 {
      * and the square of the sum.
      * </p>
      */
-    long calculate(int upperLimit);
+    long calculate(long upperLimit);
 
+    @Override
+    default long runSolution(long input) {
+        return calculate(input);
+    }
 }

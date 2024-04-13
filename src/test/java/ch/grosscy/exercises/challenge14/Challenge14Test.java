@@ -1,6 +1,7 @@
 package ch.grosscy.exercises.challenge14;
 
-import org.junit.jupiter.api.BeforeEach;
+import ch.grosscy.exercises.core.Challenge;
+import ch.grosscy.exercises.core.SolutionFactory;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -8,12 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class Challenge14Test {
 
-    Challenge14 challenge14;
-
-    @BeforeEach
-    void setup() {
-        challenge14 = new Solution14();
-    }
+    Challenge challenge = SolutionFactory.getSolution(Challenge14.class);
 
     @ParameterizedTest
     @CsvSource({
@@ -25,9 +21,9 @@ class Challenge14Test {
             "1_000_000, 837_799",
             "10_000_000, 8_400_511"
     })
-    void testPositiveCases(int upperLimit,
+    void testPositiveCases(long upperLimit,
                            long expectedCollatzNumber) {
-        assertThat(challenge14.calculate(upperLimit))
+        assertThat(challenge.runSolution(upperLimit))
                 .as("Your collatz number is the one with the longest stopping time up to the " +
                             "upper limit %d",
                     upperLimit)

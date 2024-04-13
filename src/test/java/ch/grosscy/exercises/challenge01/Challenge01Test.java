@@ -1,7 +1,8 @@
 package ch.grosscy.exercises.challenge01;
 
+import ch.grosscy.exercises.core.Challenge;
+import ch.grosscy.exercises.core.SolutionFactory;
 import org.assertj.core.api.Condition;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -10,12 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class Challenge01Test {
 
-    Challenge01 challenge01;
-
-    @BeforeEach
-    void setup() {
-        challenge01 = new Solution01();
-    }
+    Challenge challenge = SolutionFactory.getSolution(Challenge01.class);
 
     @ParameterizedTest
     @CsvSource({
@@ -25,7 +21,7 @@ class Challenge01Test {
             "10000, 23_331_668",
     })
     void testPositiveCases(int input, int expectedResult) {
-        int result = challenge01.calculate(input);
+        int result = challenge.runSolution(input);
         var smallerThanExpectedResult = new Condition<Integer>(x -> x < expectedResult,
                                                                """
                                                                        smaller than:

@@ -1,6 +1,8 @@
 package ch.grosscy.exercises.challenge05;
 
-public interface Challenge05 {
+import ch.grosscy.exercises.core.Challenge;
+
+public interface Challenge05 extends Challenge {
 
     /**
      * <b>Problem description</b>
@@ -12,6 +14,10 @@ public interface Challenge05 {
      * by all the numbers from <i>1</i> to <i>20</i>?
      * </p>
      */
-    long calculate(int upperLimit);
+    long calculate(long upperLimit);
 
+    @Override
+    default long runSolution(long input) {
+        return calculate(input);
+    }
 }

@@ -1,7 +1,8 @@
 package ch.grosscy.exercises.challenge05;
 
+import ch.grosscy.exercises.core.Challenge;
+import ch.grosscy.exercises.core.SolutionFactory;
 import org.assertj.core.api.Condition;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -9,12 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class Challenge05Test {
 
-    Challenge05 challenge05;
-
-    @BeforeEach
-    void setup() {
-        challenge05 = new Solution05();
-    }
+    Challenge challenge = SolutionFactory.getSolution(Challenge05.class);
 
     @ParameterizedTest
     @CsvSource({
@@ -23,7 +19,7 @@ class Challenge05Test {
             "15, 360_360",
             "20, 232_792_560"
     })
-    void testPositiveCases(int maximalNumber,
+    void testPositiveCases(long maximalNumber,
                            long smallestDivisibleNumber) {
         var greaterThanExpectedResult = new Condition<Long>(x -> x > smallestDivisibleNumber,
                                                             """
@@ -34,7 +30,7 @@ class Challenge05Test {
                                                                      number is not the minimum""",
                                                             smallestDivisibleNumber);
 
-        assertThat(challenge05.calculate(maximalNumber))
+        assertThat(challenge.runSolution(maximalNumber))
                 .isNot(greaterThanExpectedResult)
                 .isEqualTo(smallestDivisibleNumber);
     }

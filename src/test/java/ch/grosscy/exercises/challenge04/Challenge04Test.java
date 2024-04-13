@@ -1,6 +1,7 @@
 package ch.grosscy.exercises.challenge04;
 
-import org.junit.jupiter.api.BeforeEach;
+import ch.grosscy.exercises.core.Challenge;
+import ch.grosscy.exercises.core.SolutionFactory;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -8,12 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class Challenge04Test {
 
-    Challenge04 challenge04;
-
-    @BeforeEach
-    void setup() {
-        challenge04 = new Solution04();
-    }
+    Challenge challenge = SolutionFactory.getSolution(Challenge04.class);
 
     @ParameterizedTest
     @CsvSource({
@@ -23,7 +19,7 @@ class Challenge04Test {
     })
     void testPositiveCases(int lengthOfFactors,
                            int expectedPalindrome) {
-        assertThat(challenge04.calculate(lengthOfFactors))
+        assertThat(challenge.runSolution(lengthOfFactors))
                 .isEqualTo(expectedPalindrome);
     }
 
@@ -37,7 +33,7 @@ class Challenge04Test {
     })
     void testNegativeCases(int lengthOfFactors,
                            int expectedPalindrome) {
-        assertThat(challenge04.calculate(lengthOfFactors))
+        assertThat(challenge.runSolution(lengthOfFactors))
                 .as("The palindrome is valid, but is not the largest palindrome" +
                             "for %s-digit numbers",
                     lengthOfFactors)

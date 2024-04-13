@@ -1,6 +1,7 @@
 package ch.grosscy.exercises.challenge07;
 
-import org.junit.jupiter.api.BeforeEach;
+import ch.grosscy.exercises.core.Challenge;
+import ch.grosscy.exercises.core.SolutionFactory;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -8,12 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class Challenge07Test {
 
-    Challenge07 challenge07;
-
-    @BeforeEach
-    void setup(){
-        challenge07 = new Solution07();
-    }
+    Challenge challenge = SolutionFactory.getSolution(Challenge07.class);
 
     @ParameterizedTest
     @CsvSource({
@@ -30,7 +26,7 @@ class Challenge07Test {
     })
     void testPositiveCases(long positionOfPrime,
                            long expectedPrimeNumber) {
-        assertThat(challenge07.calculate(positionOfPrime))
+        assertThat(challenge.runSolution(positionOfPrime))
                 .isEqualTo(expectedPrimeNumber);
     }
 }

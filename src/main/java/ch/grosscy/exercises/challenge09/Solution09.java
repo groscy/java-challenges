@@ -8,26 +8,26 @@ public class Solution09 implements Challenge09 {
 
     public static final int LIMIT = 1000;
 
-    private static List<PythagoreanTriplet> findPythagoreanTripletsUpTo(int upperLimit) {
+    private static List<PythagoreanTriplet> findPythagoreanTripletsUpTo(long upperLimit) {
         // TODO Implementation...
         return List.of(new PythagoreanTriplet(1, 2, 3));
     }
 
     @Override
-    public long calculate(Predicate<PythagoreanTriplet> pythagoreanTripletPredicate) {
+    public long calculate(Predicate<Long> pythagoreanTripletPredicate) {
         List<PythagoreanTriplet> list = findPythagoreanTripletsUpTo(LIMIT);
         var pythagoreanTripletWithPredicate =
                 findTripletWithCondition(list, pythagoreanTripletPredicate);
 
         return pythagoreanTripletWithPredicate.map(PythagoreanTriplet::product)
-                                            .orElse(-1);
+                                            .orElse(-1L);
     }
 
     private static Optional<PythagoreanTriplet> findTripletWithCondition(
             List<PythagoreanTriplet> list,
-            Predicate<PythagoreanTriplet> tripletCondition) {
+            Predicate<Long> tripletCondition) {
         for (PythagoreanTriplet triplet : list) {
-            if (tripletCondition.test(triplet)) {
+            if (tripletCondition.test(triplet.sum())) {
                 return Optional.of(triplet);
             }
         }

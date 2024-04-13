@@ -1,6 +1,8 @@
 package ch.grosscy.exercises.challenge16;
 
-public interface Challenge16 {
+import ch.grosscy.exercises.core.Challenge;
+
+public interface Challenge16 extends Challenge {
 
     /**
      * <b>Problem description</b>
@@ -14,6 +16,10 @@ public interface Challenge16 {
      * What is the sum of the digits of the number <i>2<sup>1000</sup></i>?
      * </p>
      */
-    long calculate(int exponent);
+    long calculate(long exponent);
 
+    @Override
+    default long runSolution(long input) {
+        return calculate(input);
+    }
 }

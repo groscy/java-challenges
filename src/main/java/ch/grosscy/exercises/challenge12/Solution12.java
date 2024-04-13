@@ -13,7 +13,7 @@ public class Solution12 implements Challenge12 {
      * - Leverage data structure to avoid duplicates
      */
     @Override
-    public long calculate(int numberOfDivisors) {
+    public long calculate(long numberOfDivisors) {
         // TODO Implementation...
         return 0L;
     }

@@ -1,6 +1,8 @@
 package ch.grosscy.exercises.challenge11;
 
-public interface Challenge11 {
+import ch.grosscy.exercises.core.Challenge;
+
+public interface Challenge11 extends Challenge {
 
     int[] LINE_01 = {8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8};
     int[] LINE_02 = {49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0};
@@ -68,6 +70,10 @@ public interface Challenge11 {
      * What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the <i>20 x 20</i> grid?
      * </p>
      */
-    long calculate(int searchRayLength);
+    long calculate(long searchRayLength);
 
+    @Override
+    default long runSolution(long input) {
+        return calculate(input);
+    }
 }

@@ -1,8 +1,10 @@
 package ch.grosscy.exercises.challenge09;
 
+import ch.grosscy.exercises.core.Challenge;
+
 import java.util.function.Predicate;
 
-public interface Challenge09 {
+public interface Challenge09 extends Challenge {
 
     /**
      * <b>Problem description</b>
@@ -21,6 +23,10 @@ public interface Challenge09 {
      * Find the product <i>abc</i>.
      * </p>
      */
-    long calculate(Predicate<PythagoreanTriplet> pythagoreanTripletPredicate);
+    long calculate(Predicate<Long> pythagoreanTripletPredicate);
 
+    @Override
+    default long runSolution(Predicate<Long> input) {
+        return calculate(input);
+    }
 }

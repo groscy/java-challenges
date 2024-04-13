@@ -1,6 +1,8 @@
 package ch.grosscy.exercises.challenge10;
 
-public interface Challenge10 {
+import ch.grosscy.exercises.core.Challenge;
+
+public interface Challenge10 extends Challenge {
 
     /**
      * <b>Problem description</b>
@@ -11,6 +13,10 @@ public interface Challenge10 {
      * Find the sum of all the primes below two million.
      * </p>
      */
-    long calculate(int upperLimit);
+    long calculate(long upperLimit);
 
+    @Override
+    default long runSolution(long input) {
+        return calculate(input);
+    }
 }

@@ -1,8 +1,10 @@
 package ch.grosscy.exercises.challenge03;
 
+import ch.grosscy.exercises.core.Challenge;
+
 import java.util.List;
 
-public interface Challenge03 {
+public interface Challenge03 extends Challenge {
 
     /**
      * <b>Problem description</b>
@@ -15,4 +17,8 @@ public interface Challenge03 {
      */
     List<Long> calculate(long maximalNumber);
 
+    @Override
+    default List<Long> runSolutionProducingList(long input) {
+        return calculate(input);
+    }
 }

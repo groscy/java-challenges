@@ -1,6 +1,8 @@
 package ch.grosscy.exercises.challenge08;
 
-public interface Challenge08 {
+import ch.grosscy.exercises.core.Challenge;
+
+public interface Challenge08 extends Challenge {
 
     String DIGIT_SEQUENCE =
             "73167176531330624919225119674426574742355349194934" +
@@ -59,6 +61,10 @@ public interface Challenge08 {
      * <i>1000</i>-digit number that have the greatest product. What is the value of this product?
      * </p>
      */
-    long calculate(int upperLimit);
+    long calculate(long upperLimit);
 
+    @Override
+    default long runSolution(long input) {
+        return calculate(input);
+    }
 }

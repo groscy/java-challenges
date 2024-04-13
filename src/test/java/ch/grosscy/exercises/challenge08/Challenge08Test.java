@@ -1,6 +1,7 @@
 package ch.grosscy.exercises.challenge08;
 
-import org.junit.jupiter.api.BeforeEach;
+import ch.grosscy.exercises.core.Challenge;
+import ch.grosscy.exercises.core.SolutionFactory;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -8,12 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class Challenge08Test {
 
-    Challenge08 challenge08;
-
-    @BeforeEach
-    void setup(){
-        challenge08 = new Solution08();
-    }
+    Challenge challenge = SolutionFactory.getSolution(Challenge08.class);
 
     @ParameterizedTest
     @CsvSource({
@@ -22,9 +18,9 @@ class Challenge08Test {
             "9, 61_725_888",
             "13, 23_514_624_000"
     })
-    void testPositiveCases(int numberOfAdjacentDigits,
+    void testPositiveCases(long numberOfAdjacentDigits,
                            long productOfAdjacentDigits) {
-        assertThat(challenge08.calculate(numberOfAdjacentDigits))
+        assertThat(challenge.runSolution(numberOfAdjacentDigits))
                 .isEqualTo(productOfAdjacentDigits);
     }
 
@@ -35,9 +31,9 @@ class Challenge08Test {
             "9, 2_139_857_920",
             "13, 2_144_416_768"
     })
-    void testNegativeCases(int numberOfAdjacentDigits,
+    void testNegativeCases(long numberOfAdjacentDigits,
                            long productOfAdjacentDigits) {
-        assertThat(challenge08.calculate(numberOfAdjacentDigits))
+        assertThat(challenge.runSolution(numberOfAdjacentDigits))
                 .as("Important: If you iterate over the string make sure to use " +
                             "the actual number and not the character code!")
                 .isNotEqualTo(productOfAdjacentDigits);

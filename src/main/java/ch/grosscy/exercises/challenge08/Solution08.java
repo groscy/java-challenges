@@ -6,7 +6,7 @@ public class Solution08 implements Challenge08 {
     private final String numberToUseForSearchingAdjacentDigits = DIGIT_SEQUENCE;
 
     @Override
-    public long calculate(int numberOfAdjacentDigits) {
+    public long calculate(long numberOfAdjacentDigits) {
         // TODO Implementation...
         return 0L;
     }

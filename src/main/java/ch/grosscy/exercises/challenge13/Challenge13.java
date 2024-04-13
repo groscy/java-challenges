@@ -1,10 +1,12 @@
 package ch.grosscy.exercises.challenge13;
 
+import ch.grosscy.exercises.core.Challenge;
+
 import java.math.BigInteger;
 import java.util.List;
 import java.util.stream.Stream;
 
-public interface Challenge13 {
+public interface Challenge13 extends Challenge {
     List<BigInteger> NUMBERS = Stream.of(
             new BigInteger(
                     "37107287533902102798797998220837590246510135740250"),
@@ -323,4 +325,8 @@ public interface Challenge13 {
      */
     String calculate(int digitCount);
 
+    @Override
+    default String runSolutionProducesString(int input) {
+        return calculate(input);
+    }
 }

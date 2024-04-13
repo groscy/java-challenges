@@ -1,6 +1,8 @@
 package ch.grosscy.exercises.challenge14;
 
-public interface Challenge14 {
+import ch.grosscy.exercises.core.Challenge;
+
+public interface Challenge14 extends Challenge {
 
     /**
      * <b>Problem description</b>
@@ -34,6 +36,10 @@ public interface Challenge14 {
      * <a href="https://en.wikipedia.org/wiki/Collatz_conjecture">https://en.wikipedia.org/wiki/Collatz_conjecture</a>
      * </p>
      */
-    long calculate(int upperLimit);
+    long calculate(long upperLimit);
 
+    @Override
+    default long runSolution(long input) {
+        return calculate(input);
+    }
 }
