@@ -6,18 +6,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * <b>Problem description</b>
- * <p> A palindromic number reads the same both ways.
- * The largest palindrome made from the product of two 2-digit numbers is:
- * <br/>
- * <br/>
- * <i>9009 = 91 x 99</i>
- * <br/>
- * <br/>
- * Find the largest palindrome made from the product of two 3-digit numbers.
- * </p>
- */
 class Challenge04Test {
 
     Challenge04 challenge04;
@@ -34,7 +22,7 @@ class Challenge04Test {
             "4, 99_000_099"
     })
     void testPositiveCases(int lengthOfFactors,
-                           int expectedPalindrome){
+                           int expectedPalindrome) {
         assertThat(challenge04.calculate(lengthOfFactors))
                 .isEqualTo(expectedPalindrome);
     }
@@ -48,9 +36,11 @@ class Challenge04Test {
             "4, 1002001"
     })
     void testNegativeCases(int lengthOfFactors,
-                           int expectedPalindrome){
+                           int expectedPalindrome) {
         assertThat(challenge04.calculate(lengthOfFactors))
-                .as(STR."The palindrome is valid, but is not the largest palindrome for \{lengthOfFactors}-digit numbers")
+                .as("The palindrome is valid, but is not the largest palindrome" +
+                            "for %s-digit numbers",
+                    lengthOfFactors)
                 .isNotEqualTo(expectedPalindrome);
     }
 

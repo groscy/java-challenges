@@ -10,16 +10,16 @@ public class Solution09 implements Challenge09 {
 
     private static List<PythagoreanTriplet> findPythagoreanTripletsUpTo(int upperLimit) {
         // TODO Implementation...
-        return List.of(new PythagoreanTriplet(3, 4, 5));
+        return List.of(new PythagoreanTriplet(1, 2, 3));
     }
 
     @Override
     public long calculate(Predicate<PythagoreanTriplet> pythagoreanTripletPredicate) {
         List<PythagoreanTriplet> list = findPythagoreanTripletsUpTo(LIMIT);
-        var pythagoreanTripletWithSum1000 =
+        var pythagoreanTripletWithPredicate =
                 findTripletWithCondition(list, pythagoreanTripletPredicate);
 
-        return pythagoreanTripletWithSum1000.map(PythagoreanTriplet::product)
+        return pythagoreanTripletWithPredicate.map(PythagoreanTriplet::product)
                                             .orElse(-1);
     }
 
@@ -32,16 +32,6 @@ public class Solution09 implements Challenge09 {
             }
         }
         return Optional.empty();
-    }
-
-    public record PythagoreanTriplet(int a, int b, int c) {
-        int sum() {
-            return a + b + c;
-        }
-
-        int product() {
-            return a * b * c;
-        }
     }
 
 }

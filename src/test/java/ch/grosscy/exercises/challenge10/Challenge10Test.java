@@ -6,15 +6,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * <b>Problem description</b>
- * <p>
- * The sum of the primes below <i>10</i> is <i>2 + 3 + 5 + 7 = 17</i>.
- * <br/>
- * <br/>
- * Find the sum of all the primes below two million.
- * </p>
- */
 class Challenge10Test {
 
     Challenge10 challenge10;

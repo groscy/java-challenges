@@ -10,15 +10,6 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * <b>Problem description</b>
- * <p>
- * The prime factors of <i>13'195</i>
- * are <i>5</i>,<i>7</i>,<i>13</i> and <i>29</i>.
- * <br />
- * What is the largest prime factor of the number <i>600'851'475'143</i>?
- * </p>
- */
 class Challenge03Test {
 
     Challenge03 challenge03;
@@ -43,11 +34,15 @@ class Challenge03Test {
         List<Long> result = challenge03.calculate(input);
 
         assertThat(result)
-                .as(STR."less than:\n\t\{expectedResult}\n" +
-                            "Important: Some prime factors are missing!")
+                .as("""
+                            less than:
+                            \t%s
+                            Important: Some prime factors are missing!""", expectedResult)
                 .hasSameSizeAs(expectedResult)
-                .as("\nThere are some prime factors that are wrong check your calculation!\n" +
-                            STR."You can ignore 1 and \{input}\n")
+                .as("""
+                            There are some prime factors that are wrong check your calculation!
+                            You can ignore 1 and %s
+                            """, input)
                 .containsAll(expectedResult);
     }
 

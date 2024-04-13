@@ -6,29 +6,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * <b>Problem description</b>
- * <p>
- * The sum of the squares of the first ten natural numbers is,
- * <br/>
- * <br/>
- * <i>1<sup>2</sup> + 2<sup>2</sup> + ... + 10<sup>2</sup> = 385</i>
- * <br/>
- * <br/>
- * The square of the sum of the first ten natural numbers is,
- * <br/>
- * <br/>
- * <i>(1 + 2 + ... + 10)<sup>2</sup> = 55<sup>2</sup> = 3025</i>
- * <br/>
- * <br/>
- * Hence the difference between the sum of the squares of the
- * first ten natural numbers and the square of the sum is 3025 - 385 = 2640.
- * <br/>
- * <br/>
- * Find the difference between the sum of the squares of the first one hundred natural numbers
- * and the square of the sum.
- * </p>
- */
 class Challenge06Test {
 
     Challenge06 challenge06;
@@ -69,7 +46,7 @@ class Challenge06Test {
     void testNegativeCases_wrongRange(int upperLimit,
                                       int expectedDifferenceOfSquares) {
         assertThat(challenge06.calculate(upperLimit))
-                .as(STR."Important: Check that you include the range from 1 to \{upperLimit} (inclusive)")
+                .as("Important: Check that you include the range from 1 to %s (inclusive)", upperLimit)
                 .isNotEqualTo(expectedDifferenceOfSquares);
     }
 
