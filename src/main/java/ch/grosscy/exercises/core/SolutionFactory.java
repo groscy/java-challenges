@@ -32,6 +32,8 @@ import ch.grosscy.exercises.challenge15.Challenge15;
 import ch.grosscy.exercises.challenge15.Solution15;
 import ch.grosscy.exercises.challenge16.Challenge16;
 import ch.grosscy.exercises.challenge16.Solution16;
+import ch.grosscy.exercises.challenge17.Challenge17;
+import ch.grosscy.exercises.challenge17.Solution17;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -58,6 +60,7 @@ public class SolutionFactory {
         solutionMap.put(Challenge14.class, new Solution14());
         solutionMap.put(Challenge15.class, new Solution15());
         solutionMap.put(Challenge16.class, new Solution16());
+        solutionMap.put(Challenge17.class, new Solution17());
     }
 
     public static Challenge getSolution(Class<? extends Challenge> challengeClass) {
