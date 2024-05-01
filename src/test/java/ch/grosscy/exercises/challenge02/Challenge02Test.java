@@ -14,10 +14,14 @@ class Challenge02Test {
 
     @ParameterizedTest
     @CsvSource({
-            "10, 19",
-            "20, 32",
-            "30, 53",
-            "4_000_000, 9_227_463",
+            "10, 10",
+            "20, 10",
+            "40, 44",
+            "100, 44",
+            "2900, 3_382",
+            "40_900, 14_328",
+            "560_923, 257_114",
+            "4_000_000, 4_613_732",
     })
     void testPositiveCases(int input, int expectedResult) {
         int result = challenge.runSolution(input);
@@ -47,5 +51,24 @@ class Challenge02Test {
                 .isNot(smallerThanExpectedResult)
                 .isNot(greaterThanExpectedResult)
                 .isEqualTo(expectedResult);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "10, 19",
+            "20, 32",
+            "40, 87",
+            "100, 231",
+            "2900, 6_763",
+            "40_900, 75_023",
+            "560_923, 1_346_267",
+            "4_000_000, 9_227_463",
+    })
+    void testNegativeCases(int input, int expectedResult) {
+        int result = challenge.runSolution(input);
+
+        assertThat(result)
+                .as("Do not forget to only use even fibonacci numbers!")
+                .isNotEqualTo(expectedResult);
     }
 }

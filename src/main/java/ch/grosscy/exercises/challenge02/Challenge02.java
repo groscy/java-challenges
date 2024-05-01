@@ -25,7 +25,7 @@ public interface Challenge02 extends Challenge {
 
     @Override
     default int runSolution(int maximalNumber) {
-        return calculate(calculate(maximalNumber));
+        return calculate(maximalNumber);
     }
 
 }
